@@ -1,0 +1,17 @@
+:root {
+  --ink: #0c111b;
+  --ink-soft: #151d2b;
+  --paper: #e9ece4;
+  --paper-dim: #b8c0b7;
+  --line: rgba(233, 236, 228, .18);
+  --acid: #c6f55b;
+  --coral: #ed725e;
+  --lilac: #9b9cf5;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Manrope", Arial, sans-serif;
+  --mono: "DM Mono", monospace;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --container: min(1180px, calc(100% - 48px));
+}
+
+@media (max-width: 600px) { :root { --container: min(100% - 32px, 1180px); } }
