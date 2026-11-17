@@ -6,7 +6,9 @@
   let particles = [];
   const create = () => {
     const count = Math.min(110, Math.floor((innerWidth * innerHeight) / 11500));
-    particles = Array.from({ length: count }, (_, id) => ({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, vx: (Math.random() - .5) * .16, vy: (Math.random() - .5) * .16, size: Math.random() * 1.8 + .5, tone: id % 9 === 0 ? '#c6f55b' : id % 5 === 0 ? '#9b9cf5' : '#e9ece4' }));
+    const light = document.documentElement.dataset.theme === 'light';
+    const tones = light ? ['#3f7818', '#6665c8', '#17211d'] : ['#c6f55b', '#9b9cf5', '#e9ece4'];
+    particles = Array.from({ length: count }, (_, id) => ({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, vx: (Math.random() - .5) * .16, vy: (Math.random() - .5) * .16, size: Math.random() * 1.8 + .5, tone: id % 9 === 0 ? tones[0] : id % 5 === 0 ? tones[1] : tones[2] }));
   };
   const resize = () => { canvas.width = innerWidth * devicePixelRatio; canvas.height = innerHeight * devicePixelRatio; context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); create(); };
   const draw = () => {
@@ -22,5 +24,6 @@
     context.globalAlpha = 1;
     requestAnimationFrame(draw);
   };
-  addEventListener('pointermove', event => { pointer.x = event.clientX; pointer.y = event.clientY; }); addEventListener('resize', resize); resize(); draw();
+  addEventListener('pointermove', event => { pointer.x = event.clientX; pointer.y = event.clientY; }); addEventListener('resize', resize); document.addEventListener('portfolio:themechange', create); resize(); draw();
 })();
+

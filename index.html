@@ -7,6 +7,7 @@
     <title> HS Student Portfolio | Ethan Liang — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>(function(){var m;try{m=localStorage.getItem('portfolio-theme')}catch(e){}if(m!=='light'&&m!=='dark'&&m!=='system')m='system';var d=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=m==='system'?(d?'dark':'light'):m;document.documentElement.dataset.themeMode=m}())</script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/tokens.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
@@ -23,7 +24,14 @@
         <a href="pages/about.html">About</a>
         <a href="pages/immersive.html">Immersive</a>
       </nav>
-      <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>Motion: on</button>
+      <div class="site-controls">
+        <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>Motion: on</button>
+        <div class="theme-switcher" role="group" aria-label="Colour theme">
+          <button class="theme-choice" type="button" aria-pressed="false" data-theme-choice="light">Light</button>
+          <button class="theme-choice" type="button" aria-pressed="false" data-theme-choice="dark">Dark</button>
+          <button class="theme-choice" type="button" aria-pressed="false" data-theme-choice="system">System</button>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -88,3 +96,4 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
+
